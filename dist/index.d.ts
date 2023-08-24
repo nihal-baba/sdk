@@ -14,6 +14,10 @@ export declare type UiConfigType = {
         expanded?: boolean;
     };
 };
+export declare type size = {
+    height: string;
+    width: string;
+};
 export declare type EmbedDashboardParams = {
     /** The id provided by the embed configuration UI in Superset */
     id: string;
@@ -27,6 +31,7 @@ export declare type EmbedDashboardParams = {
     dashboardUiConfig?: UiConfigType;
     /** Are we in debug mode? */
     debug?: boolean;
+    size: size;
 };
 export declare type Size = {
     width: number;
@@ -41,4 +46,4 @@ export declare type EmbeddedDashboard = {
 /**
  * Embeds a Superset dashboard into the page using an iframe.
  */
-export declare function embedDashboard({ id, supersetDomain, mountPoint, fetchGuestToken, dashboardUiConfig, debug, }: EmbedDashboardParams): Promise<EmbeddedDashboard>;
+export declare function embedDashboard({ id, supersetDomain, mountPoint, fetchGuestToken, dashboardUiConfig, debug, size, }: EmbedDashboardParams): Promise<EmbeddedDashboard>;

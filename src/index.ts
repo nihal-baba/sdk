@@ -31,6 +31,7 @@ import { getGuestTokenRefreshTiming } from "./guestTokenRefresh";
  * The Host App backend must supply an API endpoint
  * which returns a guest token with appropriate resource access.
  */
+
 export type GuestTokenFetchFn = () => Promise<string>;
 
 export type UiConfigType = {
@@ -43,7 +44,10 @@ export type UiConfigType = {
     expanded?: boolean;
   };
 };
-
+export type size = {
+  height: string;
+  width: string;
+};
 export type EmbedDashboardParams = {
   /** The id provided by the embed configuration UI in Superset */
   id: string;
@@ -57,6 +61,8 @@ export type EmbedDashboardParams = {
   dashboardUiConfig?: UiConfigType;
   /** Are we in debug mode? */
   debug?: boolean;
+  //won't you sze it
+  size: size;
 };
 
 export type Size = {
@@ -74,6 +80,7 @@ export type EmbeddedDashboard = {
 /**
  * Embeds a Superset dashboard into the page using an iframe.
  */
+
 export async function embedDashboard({
   id,
   supersetDomain,
@@ -81,6 +88,7 @@ export async function embedDashboard({
   fetchGuestToken,
   dashboardUiConfig,
   debug = false,
+  size,
 }: EmbedDashboardParams): Promise<EmbeddedDashboard> {
   function log(...info: unknown[]) {
     if (debug) {
@@ -128,10 +136,9 @@ export async function embedDashboard({
           : "";
 
       // set up style values
+      iframe.style.height = size.height; //height
 
-      iframe.style.height = "100vh"; //height
-
-      iframe.style.width = "100vw"; //width
+      iframe.style.width = size.width; //width
 
       // set up the iframe's sandbox configuration
       iframe.sandbox.add("allow-same-origin"); // needed for postMessage to work

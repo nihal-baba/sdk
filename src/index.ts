@@ -126,8 +126,13 @@ export async function embedDashboard({
               )
               .join("&")
           : "";
-      iframe.style.height = "100vh";
-      iframe.style.width = "100vw";
+
+      // set up style values
+
+      iframe.style.height = "100vh"; //height
+
+      iframe.style.width = "100vw"; //width
+
       // set up the iframe's sandbox configuration
       iframe.sandbox.add("allow-same-origin"); // needed for postMessage to work
       iframe.sandbox.add("allow-scripts"); // obviously the iframe needs scripts

@@ -45,6 +45,10 @@ embedDashboard({
       filters: {
           expanded: true,
       }
+      size:{// resizing the embedded dashboard
+          heigh:"100vh",
+          width:"100vw"
+      }
   },
 });
 ```

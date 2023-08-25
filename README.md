@@ -47,9 +47,9 @@ embedDashboard({
       }
   },
   size:{// resizing the embedded dashboard
-            heigh:"100vh",
-            width:"100vw"
-        }
+      heigh:"100vh",
+      width:"100vw"
+  }
 });
 ```
 

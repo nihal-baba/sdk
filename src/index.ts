@@ -61,7 +61,7 @@ export type EmbedDashboardParams = {
   dashboardUiConfig?: UiConfigType;
   /** Are we in debug mode? */
   debug?: boolean;
-  //won't you sze it
+  /* won't you size it */
   size: size;
 };
 
@@ -136,8 +136,8 @@ export async function embedDashboard({
           : "";
 
       // set up style values
-      iframe.style.height = size.height ?? "100vh"; //height
-      iframe.style.width = size.width ?? "100vw"; //width
+      iframe.style.height = size?.height ?? "100vh"; //height
+      iframe.style.width = size?.width ?? "100vw"; //width
 
       // set up the iframe's sandbox configuration
       iframe.sandbox.add("allow-same-origin"); // needed for postMessage to work
